@@ -1,5 +1,0 @@
-provider:
-  server: 10.1.1.9
-  user: admin
-  password: admin
-  validate_certs: no

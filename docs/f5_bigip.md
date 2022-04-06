@@ -2,9 +2,9 @@
 
 [f5networks.f5_bigip](https://clouddocs.f5.com/products/orchestration/ansible/devel/f5_bigip/modules_2_0/module_index.html) uses [Application Services 3](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/) extension to enable a declarative approach to configuring AFM firewall policies. This means that the firewall policies and rules can be defined in any order within the declaration, and AS3 will translate the declaration to the correct order of operation on the BIG-IP.
 
-The firewall policies in this example are represented in YAML in [`policies.yaml`](inventory/host_vars/bigip01/policies.yaml). The structure largely follows the AS3 schema for firewall objects, where address lists and port lists are separate objects referenced within [firewall rules](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/refguide/schema-reference.html#firewall-rule), simplifying the Jinja2 template [`firewall_policy.json.j2`](./templates/firewall_policy.json.j2) used to generate the AS3 request body.
+The firewall policies in this example are represented in YAML in [`f5_bigip_policies.yaml`](../inventory/host_vars/bigip01/policies.yaml). The structure largely follows the AS3 schema for firewall objects, where address lists and port lists are separate objects referenced within [firewall rules](https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/refguide/schema-reference.html#firewall-rule), simplifying the Jinja2 template [`firewall_policy.json.j2`](../templates/firewall_policy.json.j2) used to generate the AS3 request body.
 
-To deploy the firewall policies, run `ansible-playbook -i inventory/inventory.ini main.yaml`. The following objects will be created on the BIG-IP as defined in the AS3 declaration:
+To deploy the firewall policies, run `ansible-playbook -i inventory/inventory.ini f5-bigip-main.yaml`. The following objects will be created on the BIG-IP as defined in the AS3 declaration:
 
 **Address lists**
 
@@ -26,4 +26,4 @@ The policies can then be attached to virtual server (outside the scope of this r
 
 Changes to the policies can be done by updating the inventory, and rerunning the Ansible playbook.
 
-To remove the firewall policies, run `ansible-playbook -i inventory/inventory.ini clean-up.yaml`
+To remove the firewall policies, run `ansible-playbook -i inventory/inventory.ini f5-bigip-clean-up.yaml`

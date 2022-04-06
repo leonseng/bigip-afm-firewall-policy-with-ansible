@@ -1,4 +1,4 @@
-policies:
+f5_modules_policies:
   - name: "f5_modules_http_policy"
     rules:
       - name: rule-1

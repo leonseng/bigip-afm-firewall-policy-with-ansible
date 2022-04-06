@@ -14,7 +14,7 @@ port_lists:
     - 20
     - 21
 
-policies:
+f5_bigip_policies:
   - name: "f5_bigip_http_policy"
     rules:
       - name: rule-1
