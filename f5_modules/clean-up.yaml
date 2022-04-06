@@ -1,0 +1,13 @@
+- name: Use Collections
+  hosts: all
+  connection: local
+  gather_facts: no
+  collections:
+    - f5networks.f5_modules
+
+  tasks:
+    - name: Remove policies
+      include_tasks: tasks/deploy-policy.yaml
+      loop: "{{ policies }}"
+      loop_control:
+        loop_var: policy
