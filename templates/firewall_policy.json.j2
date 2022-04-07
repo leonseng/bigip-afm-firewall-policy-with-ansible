@@ -18,7 +18,7 @@
           {% for addr in list %}
                 "{{ addr }}"{% if not loop.last %},{% endif %}
           {% endfor %}
-            ]          
+            ]
         },
   {% endfor %}
   {% for name, list in port_lists.items() %}
@@ -28,10 +28,10 @@
           {% for port in list %}
                 "{{ port }}"{% if not loop.last %},{% endif %}
           {% endfor %}
-            ]          
+            ]
         },
   {% endfor %}
-  {% for policy in policies %}
+  {% for policy in f5_bigip_policies %}
         "{{ policy.name }}": {
           "rules": [
     {% for rule in policy.rules %}
@@ -79,11 +79,11 @@
               "loggingEnabled": true
             }{% if not loop.last %},{% endif %}
     {% endfor %}
-          ],  
+          ],
           "class": "Firewall_Policy"
         }{% if not loop.last %},{% endif %}
   {% endfor %}
-      }    
+      }
     }
   }
 }

@@ -8,6 +8,6 @@
   tasks:
     - name: Remove policies
       include_tasks: tasks/deploy-policy.yaml
-      loop: "{{ policies }}"
+      loop: "{{ f5_modules_policies }}"
       loop_control:
         loop_var: policy
