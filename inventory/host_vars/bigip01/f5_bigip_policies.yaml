@@ -1,6 +1,8 @@
 address_lists:
   client_a:
     - "10.0.0.0/24"
+  client_b:
+    - "10.0.1.0/24"
   ftpClients:
     - "10.1.1.50"
     - "192.168.0.100-192.168.0.200"
@@ -23,6 +25,7 @@ f5_bigip_policies:
         source:
           address_lists:
             - client_a
+            - client_b
         destination:
           address_lists:
             - server
