@@ -1,6 +1,4 @@
 address_lists:
-  anyone:
-    - "0.0.0.0/0"
   client_a:
     - "10.0.0.0/24"
   ftpClients:
@@ -20,11 +18,10 @@ f5_bigip_policies:
   - name: "f5_bigip_http_policy"
     rules:
       - name: rule-1
-        description: Allow anyone to access HTTP VS
+        description: Allow clients to access HTTP VS
         protocol: tcp
         source:
           address_lists:
-            - anyone
             - client_a
         destination:
           address_lists:
