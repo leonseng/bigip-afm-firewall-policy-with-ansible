@@ -6,9 +6,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Run ansible playbook for f5-modules
-        run: |
-          ansible-playbook -i inventory/inventory.ini f5-modules-main.yaml
+      # - name: Run ansible playbook for f5-modules
+      #   run: |
+      #     ansible-playbook -i inventory/inventory.ini f5-modules-main.yaml
       - name: Run ansible playbook for f5-bigip
         run: |
           ansible-playbook -i inventory/inventory.ini f5-bigip-main.yaml
